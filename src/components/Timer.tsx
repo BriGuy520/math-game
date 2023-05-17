@@ -12,7 +12,8 @@ const Timer = ({handleTimerInput, timer}: TimerProps) => {
             <h3>Timer</h3>
 
             <div>
-                <input type="number" value={timer} onChange={handleTimerInput} /> 
+                <label htmlFor="timer">Seconds</label>
+                <input id="timer" type="number" value={timer} onChange={handleTimerInput} /> 
             </div>
         </>
     )
