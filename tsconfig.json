@@ -4,6 +4,10 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "types": [
+      "react",
+      "@types/react"
+    ],
 
     /* Bundler mode */
     "moduleResolution": "bundler",
