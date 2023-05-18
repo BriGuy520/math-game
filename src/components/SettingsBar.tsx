@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 import Input from './Input';
 import Button from './Button';
 
-const SettingsBar = () => {
+type SettingsBarProps = {
+    handleLevelClick: MouseEventHandler<HTMLButtonElement>,
+    handleOperatorClick: MouseEventHandler<HTMLButtonElement>,
+    level: string,
+}
+
+const SettingsBar = ({level, handleLevelClick, handleOperatorClick}: SettingsBarProps) => {
 
     return (
         <>
@@ -17,19 +23,19 @@ const SettingsBar = () => {
                         </div>
                     </div>
                     <div className="level-settings">
-                        <p><strong>Level</strong></p>
+                        <p><strong>Level: {level}</strong></p>
                         <div className="level-buttons">
-                            <Button>Easy</Button>
-                            <Button>Medium</Button>
-                            <Button>Hard</Button>
+                            <Button handleClick={handleLevelClick}>Easy</Button>
+                            <Button handleClick={handleLevelClick}>Medium</Button>
+                            <Button handleClick={handleLevelClick}>Hard</Button>
                         </div>
                     </div>
                     <div className="operators-settings">
                         <p><strong>Operators</strong></p>
-                        <Button>Addition</Button>
-                        <Button>Subtraction</Button>
-                        <Button>Multiplication</Button>
-                        <Button>Division</Button>
+                        <Button handleClick={handleOperatorClick}>Addition</Button>
+                        <Button handleClick={handleOperatorClick}>Subtraction</Button>
+                        <Button handleClick={handleOperatorClick}>Multiplication</Button>
+                        <Button handleClick={handleOperatorClick}>Division</Button>
                     </div>
                 </div>
         </>        
