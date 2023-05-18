@@ -20,8 +20,7 @@ function App() {
   return (
     <>
      <h1>Math Game</h1>
-     <SettingsBar />
-     <Timer handleTimerInput={handleTimerInput} timer={timer} />
+     <SettingsBar  />
     </>
   )
 }

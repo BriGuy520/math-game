@@ -8,7 +8,7 @@ const Button = ({children}: ButtonProps) => {
 
     return (
         <>
-            <button>{children}</button>
+            <button className="btn btn-outline-primary m-2">{children}</button>
         </>
     )
 }

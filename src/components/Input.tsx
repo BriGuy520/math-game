@@ -1,12 +1,16 @@
 import React from 'react';
 
+type InputProps = {
+    inputValue: string
+}
 
-const Input = () => {
+
+const Input = ({inputValue}: InputProps) => {
 
     return (
-        <div className="input-group">
-            <input className="input" />
-        </div>
+        <>
+            <input placeholder={inputValue} className="input m-2 w-50" />
+        </>
     )
 }
 

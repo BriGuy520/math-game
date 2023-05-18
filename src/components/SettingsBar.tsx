@@ -11,7 +11,10 @@ const SettingsBar = () => {
                 <div className="settings-bar-section">
                     <div className="timer-settings">
                         <p><strong>Timer</strong></p>
-                        <Input />
+                        <div className="timer-fields">
+                            <Input inputValue={"Minutes"} />
+                            <Input inputValue={"Seconds"} />
+                        </div>
                     </div>
                     <div className="level-settings">
                         <p><strong>Level</strong></p>

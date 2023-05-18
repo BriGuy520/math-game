@@ -8,3 +8,15 @@
   display: flex;
   justify-content: space-around;
 }
+
+.timer-settings, .level-settings, .operators-settings {
+  width: 32%;
+}
+
+.timer-settings p, .level-settings p, .operators-settings p {
+  margin-bottom: 4px;
+}
+
+.timer-fields {
+  display: flex;
+}
