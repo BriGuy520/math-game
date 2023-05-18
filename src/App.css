@@ -3,3 +3,8 @@
   padding: 2rem;
 
 }
+
+.settings-bar-section {
+  display: flex;
+  justify-content: space-around;
+}
