@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   padding: 2rem;
 
 }
@@ -9,8 +9,12 @@
   justify-content: space-around;
 }
 
-.timer-settings, .level-settings, .operators-settings {
-  width: 32%;
+.timer-settings, .operators-settings {
+  width: 40%;
+}
+
+.level-settings {
+  width: 20%;
 }
 
 .timer-settings p, .level-settings p, .operators-settings p {

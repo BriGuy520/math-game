@@ -5,11 +5,12 @@ import Button from './Button';
 
 type SettingsBarProps = {
     handleLevelClick: MouseEventHandler<HTMLButtonElement>,
+    handleSetTimer: React.MouseEventHandler<HTMLButtonElement>,
     handleOperatorClick: MouseEventHandler<HTMLButtonElement>,
     level: string,
 }
 
-const SettingsBar = ({level, handleLevelClick, handleOperatorClick}: SettingsBarProps) => {
+const SettingsBar = ({level, handleLevelClick, handleSetTimer, handleOperatorClick}: SettingsBarProps) => {
 
     return (
         <>
@@ -20,6 +21,7 @@ const SettingsBar = ({level, handleLevelClick, handleOperatorClick}: SettingsBar
                         <div className="timer-fields">
                             <Input inputValue={"Minutes"} />
                             <Input inputValue={"Seconds"} />
+                            <Button handleClick={handleSetTimer}>Set Timer</Button>
                         </div>
                     </div>
                     <div className="level-settings">
