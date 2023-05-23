@@ -4,23 +4,26 @@ import Input from './Input';
 import Button from './Button';
 
 type SettingsBarProps = {
-    handleLevelClick: MouseEventHandler<HTMLButtonElement>,
+    handleLevelClick: React.MouseEventHandler<HTMLButtonElement>,
+    handleSetSeconds: React.ChangeEventHandler<HTMLInputElement>,
+    handleSetMinutes: React.ChangeEventHandler<HTMLInputElement>,
     handleSetTimer: React.MouseEventHandler<HTMLButtonElement>,
     handleOperatorClick: MouseEventHandler<HTMLButtonElement>,
     level: string,
+    timer: number,
 }
 
-const SettingsBar = ({level, handleLevelClick, handleSetTimer, handleOperatorClick}: SettingsBarProps) => {
+const SettingsBar = ({level, timer, handleLevelClick, handleSetSeconds, handleSetMinutes, handleSetTimer, handleOperatorClick}: SettingsBarProps) => {
 
     return (
         <>
             <h3>Settings</h3>   
                 <div className="settings-bar-section">
                     <div className="timer-settings">
-                        <p><strong>Timer</strong></p>
+                        <p><strong>Timer: {timer}</strong></p>
                         <div className="timer-fields">
-                            <Input inputValue={"Minutes"} />
-                            <Input inputValue={"Seconds"} />
+                            <Input handleChange={handleSetMinutes} inputValue={"Minutes"} />
+                            <Input handleChange={handleSetSeconds} inputValue={"Seconds"} />
                             <Button handleClick={handleSetTimer}>Set Timer</Button>
                         </div>
                     </div>

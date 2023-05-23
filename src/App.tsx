@@ -7,16 +7,31 @@ import SettingsBar from "./components/SettingsBar";
 function App() {
 
   const [timer, setTimer] = React.useState<number>(0);
+  const [seconds, setSeconds] = React.useState<number>(0);
+  const [minutes, setMinutes] = React.useState<number>(0);
+
   const [level, setLevel] = React.useState<string>("Easy");
   const [operators, setOperators] = React.useState<Array<string>>([]);
   
 
-  const handleTimerInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
+  const handleSetSeconds = (event: React.ChangeEvent<HTMLInputElement>) => {
 
-    setTimer(parseInt(event.target.value));
+      setSeconds(parseInt(event.target.value));
+  }
+
+  const handleSetMinutes = (event: React.ChangeEvent<HTMLInputElement>) => {
+
+    setMinutes(parseInt(event.target.value));
+}
+
+  const handleSetTimer = () => {
+    
+    const totalSeconds = (minutes * 60) + seconds;
+
+    setTimer(totalSeconds);
 
   }
+
 
   const handleLevelClick: MouseEventHandler<HTMLButtonElement> = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -28,13 +43,23 @@ function App() {
 
   const handleOperatorClick: MouseEventHandler<HTMLButtonElement> = () => {
 
+    const operatorsSelected = [...operators];
+
   }
 
 
   return (
     <>
      <h1>Math Game</h1>
-     <SettingsBar level={level} handleLevelClick={handleLevelClick} handleOperatorClick={handleOperatorClick} />
+     <SettingsBar 
+        level={level} 
+        timer={timer}
+        handleSetTimer={handleSetTimer}
+        handleSetSeconds={handleSetSeconds}
+        handleSetMinutes={handleSetMinutes}
+        handleLevelClick={handleLevelClick} 
+        handleOperatorClick={handleOperatorClick}
+      />
     </>
   )
 }

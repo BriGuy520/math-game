@@ -1,15 +1,16 @@
 import React from 'react';
 
 type InputProps = {
+    handleChange: React.ChangeEventHandler<HTMLInputElement>,
     inputValue: string
 }
 
 
-const Input = ({inputValue}: InputProps) => {
+const Input = ({handleChange, inputValue}: InputProps) => {
 
     return (
         <>
-            <input placeholder={inputValue} className="input m-2 w-40" />
+            <input onChange={handleChange} placeholder={inputValue} className="input m-2 w-40" />
         </>
     )
 }
