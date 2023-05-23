@@ -15,12 +15,34 @@ type SettingsBarProps = {
 
 const SettingsBar = ({level, timer, handleLevelClick, handleSetSeconds, handleSetMinutes, handleSetTimer, handleOperatorClick}: SettingsBarProps) => {
 
+    const formatTimer = (): string => {
+
+        let timerLeft: number =  timer;
+        let minutes: number|number = 0;
+        let seconds: string|number = 0;
+
+        while(timerLeft > 0){
+
+            console.log(timerLeft);
+
+            if(timerLeft >= 60){
+                minutes += 1;
+                timerLeft -= 60;
+            } else {
+                seconds = timerLeft % 60;
+                timerLeft -= timerLeft % 60;
+            } 
+        }
+
+        return `${minutes}:${seconds === 0 ? '00' : seconds}`;
+    }
+
     return (
         <>
             <h3>Settings</h3>   
                 <div className="settings-bar-section">
                     <div className="timer-settings">
-                        <p><strong>Timer: {timer}</strong></p>
+                        <p><strong>Timer: {formatTimer()}</strong></p>
                         <div className="timer-fields">
                             <Input handleChange={handleSetMinutes} inputValue={"Minutes"} />
                             <Input handleChange={handleSetSeconds} inputValue={"Seconds"} />

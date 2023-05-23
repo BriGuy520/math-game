@@ -29,7 +29,6 @@ function App() {
     const totalSeconds = (minutes * 60) + seconds;
 
     setTimer(totalSeconds);
-
   }
 
 
@@ -41,9 +40,14 @@ function App() {
     setLevel(targetElement.innerHTML);
   }
 
-  const handleOperatorClick: MouseEventHandler<HTMLButtonElement> = () => {
+  const handleOperatorClick: MouseEventHandler<HTMLButtonElement> = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    const targetElement = e.target as HTMLButtonElement;
 
     const operatorsSelected = [...operators];
+
+    operatorsSelected.push(targetElement.innerHTML);
 
   }
 
