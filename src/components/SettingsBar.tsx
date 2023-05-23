@@ -42,7 +42,7 @@ const SettingsBar = ({level, timer, handleLevelClick, handleSetSeconds, handleSe
             <h3>Settings</h3>   
                 <div className="settings-bar-section">
                     <div className="timer-settings">
-                        <p><strong>Timer: {formatTimer()}</strong></p>
+                        <p><strong>Timer: </strong>{formatTimer()}</p>
                         <div className="timer-fields">
                             <Input handleChange={handleSetMinutes} inputValue={"Minutes"} />
                             <Input handleChange={handleSetSeconds} inputValue={"Seconds"} />
@@ -50,7 +50,7 @@ const SettingsBar = ({level, timer, handleLevelClick, handleSetSeconds, handleSe
                         </div>
                     </div>
                     <div className="level-settings">
-                        <p><strong>Level: {level}</strong></p>
+                        <p><strong>Level: </strong>{level}</p>
                         <div className="level-buttons">
                             <Button handleClick={handleLevelClick}>Easy</Button>
                             <Button handleClick={handleLevelClick}>Medium</Button>

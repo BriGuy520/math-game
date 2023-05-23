@@ -47,10 +47,13 @@ function App() {
 
     const operatorsSelected = [...operators];
 
+
     operatorsSelected.push(targetElement.innerHTML);
 
+    setOperators(operatorsSelected);
   }
 
+  console.log(operators);
 
   return (
     <>
