@@ -45,12 +45,13 @@ function App() {
 
     const targetElement = e.target as HTMLButtonElement;
 
-    const operatorsSelected = [...operators];
-
+    const operatorsSelected: Array<string> = [...operators];
 
     operatorsSelected.push(targetElement.innerHTML);
 
-    setOperators(operatorsSelected);
+    const removeDuplicateOperators = [...new Set(operatorsSelected)];
+
+    setOperators(removeDuplicateOperators);
   }
 
   console.log(operators);
