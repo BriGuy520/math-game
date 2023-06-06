@@ -1,20 +1,40 @@
 import React from 'react';
-import Button from './Button';
 
 type TimerProps = {
-    handleTimerInput: (value: React.ChangeEvent<HTMLInputElement>) => void,
     timer: number,
 }
 
-const Timer = ({handleTimerInput, timer}: TimerProps) => {
+const Timer = ({timer}: TimerProps) => {
+
+    const [countdown, setCountdown] = React.useState<string>("");
+
+    const formatTimer = (): string => {
+
+        let timerLeft: number =  timer;
+        let minutes: number|number = 0;
+        let seconds: string|number = 0;
+
+        while(timerLeft > 0){
+
+            if(timerLeft >= 60){
+                minutes += 1;
+                timerLeft -= 60;
+            } else {
+                seconds = timerLeft % 60;
+                timerLeft -= timerLeft % 60;
+            } 
+        }
+
+        return `${minutes}:${seconds === 0 ? '00' : seconds}`;
+    }
+
+
 
     return (
         <>
             <h3>Timer</h3>
-
             <div>
-                <label htmlFor="timer">Seconds</label>
-                <input id="timer" type="number" value={timer} onChange={handleTimerInput} /> 
+                <h1>{formatTimer()}</h1>
             </div>
         </>
     )

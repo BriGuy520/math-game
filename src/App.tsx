@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from 'react'
 import './App.css'
 
-import Timer from "./components/Timer";
+import Game from "./components/Game";
 import SettingsBar from "./components/SettingsBar";
 
 function App() {
@@ -31,7 +31,6 @@ function App() {
     setTimer(totalSeconds);
   }
 
-
   const handleLevelClick: MouseEventHandler<HTMLButtonElement> = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
@@ -56,17 +55,24 @@ function App() {
 
   return (
     <>
-     <h1>Math Game</h1>
-     <SettingsBar 
-        level={level} 
-        timer={timer}
-        operators={operators}
-        handleSetTimer={handleSetTimer}
-        handleSetSeconds={handleSetSeconds}
-        handleSetMinutes={handleSetMinutes}
-        handleLevelClick={handleLevelClick} 
-        handleOperatorClick={handleOperatorClick}
-      />
+    <div className="container">
+      <h1>Math Game</h1>
+      <div className="settings-container">
+        <SettingsBar 
+            level={level} 
+            timer={timer}
+            operators={operators}
+            handleSetTimer={handleSetTimer}
+            handleSetSeconds={handleSetSeconds}
+            handleSetMinutes={handleSetMinutes}
+            handleLevelClick={handleLevelClick} 
+            handleOperatorClick={handleOperatorClick}
+          />
+      </div>
+      <div className="game-container">
+        <Game timer={timer} />
+      </div>
+    </div>
     </>
   )
 }

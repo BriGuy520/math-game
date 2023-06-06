@@ -24,8 +24,6 @@ const SettingsBar = ({operators, level, timer, handleLevelClick, handleSetSecond
 
         while(timerLeft > 0){
 
-            console.log(timerLeft);
-
             if(timerLeft >= 60){
                 minutes += 1;
                 timerLeft -= 60;
