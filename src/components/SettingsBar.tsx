@@ -53,9 +53,9 @@ const SettingsBar = ({operators, level, timer, handleLevelClick, handleSetSecond
                     <div className="level-settings">
                         <p><strong>Level: </strong>{level}</p>
                         <div className="level-buttons">
-                            <Button btnClasses={level.includes("Easy") ? "btn-primary" : "btn-outline-primary"} handleClick={handleLevelClick}>Easy</Button>
-                            <Button btnClasses={level.includes("Medium") ? "btn-primary" : "btn-outline-primary"} handleClick={handleLevelClick}>Medium</Button>
-                            <Button btnClasses={level.includes("Hard") ? "btn-primary" : "btn-outline-primary"} handleClick={handleLevelClick}>Hard</Button>
+                            <Button btnClasses={level.includes("Easy") ? "btn-success" : "btn-outline-success"} handleClick={handleLevelClick}>Easy</Button>
+                            <Button btnClasses={level.includes("Medium") ? "btn-warning" : "btn-outline-warning"} handleClick={handleLevelClick}>Medium</Button>
+                            <Button btnClasses={level.includes("Hard") ? "btn-danger" : "btn-outline-danger"} handleClick={handleLevelClick}>Hard</Button>
                         </div>
                     </div>
                     <div className="operators-settings">
