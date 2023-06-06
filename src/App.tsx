@@ -62,6 +62,7 @@ function App() {
      <SettingsBar 
         level={level} 
         timer={timer}
+        operators={operators}
         handleSetTimer={handleSetTimer}
         handleSetSeconds={handleSetSeconds}
         handleSetMinutes={handleSetMinutes}

@@ -9,11 +9,12 @@ type SettingsBarProps = {
     handleSetMinutes: React.ChangeEventHandler<HTMLInputElement>,
     handleSetTimer: React.MouseEventHandler<HTMLButtonElement>,
     handleOperatorClick: MouseEventHandler<HTMLButtonElement>,
+    operators: string[],
     level: string,
     timer: number,
 }
 
-const SettingsBar = ({level, timer, handleLevelClick, handleSetSeconds, handleSetMinutes, handleSetTimer, handleOperatorClick}: SettingsBarProps) => {
+const SettingsBar = ({operators, level, timer, handleLevelClick, handleSetSeconds, handleSetMinutes, handleSetTimer, handleOperatorClick}: SettingsBarProps) => {
 
     const formatTimer = (): string => {
 
@@ -58,7 +59,7 @@ const SettingsBar = ({level, timer, handleLevelClick, handleSetSeconds, handleSe
                         </div>
                     </div>
                     <div className="operators-settings">
-                        <p><strong>Operators</strong></p>
+                        <p><strong>Operators: </strong>{operators.join(", ")}</p>
                         <Button handleClick={handleOperatorClick}>Addition</Button>
                         <Button handleClick={handleOperatorClick}>Subtraction</Button>
                         <Button handleClick={handleOperatorClick}>Multiplication</Button>
