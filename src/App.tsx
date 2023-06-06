@@ -54,8 +54,6 @@ function App() {
     setOperators(removeDuplicateOperators);
   }
 
-  console.log(operators);
-
   return (
     <>
      <h1>Math Game</h1>
