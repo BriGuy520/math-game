@@ -1,14 +1,18 @@
 import React from 'react';
 
-type TimerProps = {
-    timer: number,
-}
+import Button from './Button';
 
-const Timer = ({timer}: TimerProps) => {
+export type TimerProps = {
+    timeLeft: number,
+    startGame: React.MouseEventHandler<HTMLButtonElement>,
+    stopGame: React.MouseEventHandler<HTMLButtonElement>,
+  }
+
+const Timer = ({timeLeft, startGame, stopGame}: TimerProps) => {
 
     const formatTimer = (): string => {
 
-        let timerLeft: number =  timer;
+        let timerLeft: number =  timeLeft;
         let minutes: number|number = 0;
         let seconds: string|number = 0;
 
@@ -33,6 +37,8 @@ const Timer = ({timer}: TimerProps) => {
             <h3>Timer</h3>
             <div>
                 <h1>{formatTimer()}</h1>
+                <Button btnClasses={"btn-outline-dark"} handleClick={startGame}>Start</Button>
+                <Button btnClasses={"btn-outline-danger"} handleClick={stopGame}>Stop</Button>
             </div>
         </>
     )

@@ -1,22 +1,17 @@
 import React from 'react';
 
-import Timer from './Timer';
-import Button from './Button';
+import Timer, { TimerProps } from './Timer';
 
-type GameProps = {
-  timeLeft: number,
-  startGame: React.MouseEventHandler<HTMLButtonElement>,
-  stopGame: React.MouseEventHandler<HTMLButtonElement>,
-}
+import Board, { BoardProps } from './Board';
 
-const Game = ({timeLeft, stopGame, startGame}: GameProps) => {
+type GameProps = TimerProps & BoardProps;
+
+const Game = ({timeLeft, guess, stopGame, startGame, handleGuess}: GameProps) => {
 
   return (
     <>
-      <Timer timer={timeLeft} />
-      <Button btnClasses={"btn-outline-dark"} handleClick={startGame}>Start</Button>
-      <Button btnClasses={"btn-outline-danger"} handleClick={stopGame}>Stop</Button>
-
+      <Timer timeLeft={timeLeft} startGame={startGame} stopGame={stopGame} />
+      <Board handleGuess={handleGuess} guess={guess} />
     </>
   )
 }

@@ -15,6 +15,8 @@ function App() {
 
   const [startTimer, setStartTimer] = React.useState<boolean>(false);
   const [timeLeft, setTimeLeft] = React.useState<number>(0);
+
+  const [guess, setGuess] = React.useState<string>("");
   
 
   const handleSetSeconds = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -90,6 +92,15 @@ function App() {
   }, [startTimer]);
 
 
+  /* Game */
+
+  const handleGuess = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+
+    setGuess(e.target.value);
+  }
+
+
   return (
     <>
     <div className="container">
@@ -107,7 +118,7 @@ function App() {
           />
       </div>
       <div className="game-container">
-        <Game timeLeft={timeLeft} startGame={startGame} stopGame={stopGame} />
+        <Game timeLeft={timeLeft} startGame={startGame} stopGame={stopGame} guess={guess} handleGuess={handleGuess} />
       </div>
     </div>
     </>

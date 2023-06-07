@@ -43,8 +43,8 @@ const SettingsBar = ({operators, level, timer, handleLevelClick, handleSetSecond
                     <div className="timer-settings">
                         <p><strong>Timer: </strong>{formatTimer()}</p>
                         <div className="timer-fields">
-                            <Input handleChange={handleSetMinutes} inputValue={"Minutes"} />
-                            <Input handleChange={handleSetSeconds} inputValue={"Seconds"} />
+                            <Input handleChange={handleSetMinutes} inputPlaceholder={"Minutes"} />
+                            <Input handleChange={handleSetSeconds} inputPlaceholder={"Seconds"} />
                             <Button btnClasses={"btn-outline-primary"} handleClick={handleSetTimer}>Set Timer</Button>
                         </div>
                     </div>
