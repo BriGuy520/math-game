@@ -13,6 +13,7 @@ function App() {
   const [level, setLevel] = React.useState<string>("Easy");
   const [operators, setOperators] = React.useState<Array<string>>([]);
 
+  const [startTimer, setStartTimer] = React.useState<boolean>(false);
   const [timeLeft, setTimeLeft] = React.useState<number>(0);
   
 
@@ -58,20 +59,39 @@ function App() {
 
   const startGame = () => {
 
-    setTimeLeft(timeLeft - 1);
+    setStartTimer(true);
+  }
+
+  const stopGame = () => {
+    
+    setTimer(0);
+    setStartTimer(false);
   }
 
   React.useEffect(() => {
-    const timerInterval = setInterval(() => {
 
-      setTimeLeft((prevTime) => prevTime - 1);
+    console.log(startTimer);
+
+    let timerInterval: number;
+
+    if(startTimer){
+
+      timerInterval = setInterval(() => {
+  
+        setTimeLeft((prevTime) => prevTime - 1);
+      }, 1000);
       
-    }, 1000);
-    
-    if(timeLeft === 0){
+    } else {
+      console.log("timer stopped");
       return () => clearInterval(timerInterval);
     }
-  }, []);
+    
+    // if(timeLeft === 0){
+    //   return () => clearInterval(timerInterval);
+    // }
+
+  }, [startTimer]);
+
 
   return (
     <>
@@ -90,7 +110,7 @@ function App() {
           />
       </div>
       <div className="game-container">
-        <Game timeLeft={timeLeft} startGame={startGame} />
+        <Game timeLeft={timeLeft} startGame={startGame} stopGame={stopGame} />
       </div>
     </div>
     </>

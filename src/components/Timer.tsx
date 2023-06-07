@@ -23,7 +23,7 @@ const Timer = ({timer}: TimerProps) => {
             } 
         }
 
-        return `${minutes}:${seconds === 0 ? '00' : seconds}`;
+        return `${minutes}:${seconds === 0 ? '00' : (seconds < 10 ? '0' + seconds : seconds)}`;
     }
 
 
