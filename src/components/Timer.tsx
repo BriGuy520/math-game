@@ -6,8 +6,6 @@ type TimerProps = {
 
 const Timer = ({timer}: TimerProps) => {
 
-    const [countdown, setCountdown] = React.useState<string>("");
-
     const formatTimer = (): string => {
 
         let timerLeft: number =  timer;

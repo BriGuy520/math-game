@@ -12,6 +12,8 @@ function App() {
 
   const [level, setLevel] = React.useState<string>("Easy");
   const [operators, setOperators] = React.useState<Array<string>>([]);
+
+  const [timeLeft, setTimeLeft] = React.useState<number>(0);
   
 
   const handleSetSeconds = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,6 +31,7 @@ function App() {
     const totalSeconds = (minutes * 60) + seconds;
 
     setTimer(totalSeconds);
+    setTimeLeft(totalSeconds);
   }
 
   const handleLevelClick: MouseEventHandler<HTMLButtonElement> = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -53,6 +56,23 @@ function App() {
     setOperators(removeDuplicateOperators);
   }
 
+  const startGame = () => {
+
+    setTimeLeft(timeLeft - 1);
+  }
+
+  React.useEffect(() => {
+    const timerInterval = setInterval(() => {
+
+      setTimeLeft((prevTime) => prevTime - 1);
+      
+    }, 1000);
+    
+    if(timeLeft === 0){
+      return () => clearInterval(timerInterval);
+    }
+  }, []);
+
   return (
     <>
     <div className="container">
@@ -70,7 +90,7 @@ function App() {
           />
       </div>
       <div className="game-container">
-        <Game timer={timer} />
+        <Game timeLeft={timeLeft} startGame={startGame} />
       </div>
     </div>
     </>

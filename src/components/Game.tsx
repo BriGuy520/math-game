@@ -4,18 +4,15 @@ import Timer from './Timer';
 import Button from './Button';
 
 type GameProps = {
-  timer: number
+  timeLeft: number,
+  startGame: React.MouseEventHandler<HTMLButtonElement>,
 }
 
-const Game = ({timer}: GameProps) => {
-
-  const startGame = () => {
-    console.log("Game started bitches!");
-  }
+const Game = ({timeLeft, startGame}: GameProps) => {
 
   return (
     <>
-      <Timer timer={timer} />
+      <Timer timer={timeLeft} />
       <Button btnClasses={"btn-outline-dark"} handleClick={startGame}>Start</Button>
     </>
   )
