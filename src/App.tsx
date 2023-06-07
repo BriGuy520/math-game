@@ -64,7 +64,7 @@ function App() {
 
   const stopGame = () => {
     
-    setTimeLeft(0);
+    setTimeLeft(timer);
     setStartTimer(false);
   }
 
@@ -84,6 +84,8 @@ function App() {
     if(timeLeft === 0){
       return () => clearInterval(timerInterval);
     }
+
+    return () => clearInterval(timerInterval);
 
   }, [startTimer]);
 
