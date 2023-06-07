@@ -33,7 +33,7 @@ const SettingsBar = ({operators, level, timer, handleLevelClick, handleSetSecond
             } 
         }
 
-        return `${minutes}:${seconds === 0 ? '00' : seconds}`;
+        return `${minutes}:${seconds === 0 ? '00' : (seconds < 10 ? '0' + seconds : seconds)}`;
     }
 
     return (
