@@ -64,13 +64,11 @@ function App() {
 
   const stopGame = () => {
     
-    setTimer(0);
+    setTimeLeft(0);
     setStartTimer(false);
   }
 
   React.useEffect(() => {
-
-    console.log(startTimer);
 
     let timerInterval: number;
 
@@ -81,14 +79,11 @@ function App() {
         setTimeLeft((prevTime) => prevTime - 1);
       }, 1000);
       
-    } else {
-      console.log("timer stopped");
-      return () => clearInterval(timerInterval);
     }
     
-    // if(timeLeft === 0){
-    //   return () => clearInterval(timerInterval);
-    // }
+    if(timeLeft === 0){
+      return () => clearInterval(timerInterval);
+    }
 
   }, [startTimer]);
 
