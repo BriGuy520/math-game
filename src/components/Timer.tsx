@@ -33,14 +33,14 @@ const Timer = ({timeLeft, startGame, stopGame}: TimerProps) => {
 
 
     return (
-        <>
+        <div className="timer-container">
             <h3>Timer</h3>
             <div>
                 <h1>{formatTimer()}</h1>
                 <Button btnClasses={"btn-outline-dark"} handleClick={startGame}>Start</Button>
                 <Button btnClasses={"btn-outline-danger"} handleClick={stopGame}>Stop</Button>
             </div>
-        </>
+        </div>
     )
 }
 

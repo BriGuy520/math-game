@@ -11,7 +11,7 @@ const Board = ({guess, handleGuess}: BoardProps) => {
 
   return (
     <div className="board-container">
-      <p>10 x 30</p>
+      <p>10 x 30 = </p>
       <Input handleChange={handleGuess} inputValue={guess} />
     </div>
   );
