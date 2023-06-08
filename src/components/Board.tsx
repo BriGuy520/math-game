@@ -10,11 +10,6 @@ export type BoardProps = {
 
 const Board = ({guess, operators, handleGuess}: BoardProps) => {
 
-  const selectedOperator = operators[Math.floor(Math.random() * operators.length)];
-
-  console.log(selectedOperator);
-
-  
 
   return (
     <div className="board-container">
