@@ -118,7 +118,7 @@ function App() {
           />
       </div>
       <div className="game-container">
-        <Game timeLeft={timeLeft} startGame={startGame} stopGame={stopGame} guess={guess} handleGuess={handleGuess} />
+        <Game timeLeft={timeLeft} operators={operators} startGame={startGame} stopGame={stopGame} guess={guess} handleGuess={handleGuess} />
       </div>
     </div>
     </>
