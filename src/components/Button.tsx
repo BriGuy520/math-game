@@ -2,14 +2,15 @@ import React from 'react';
 
 type ButtonProps = {
     children: string,
+    btnClasses: string,
     handleClick: React.MouseEventHandler<HTMLButtonElement>,
 }
 
-const Button = ({children, handleClick}: ButtonProps) => {
+const Button = ({children, btnClasses, handleClick}: ButtonProps) => {
 
     return (
         <>
-            <button onClick={handleClick} className="btn btn-outline-primary m-2">{children}</button>
+            <button onClick={handleClick} className={`btn ${btnClasses} m-2`}>{children}</button>
         </>
     )
 }

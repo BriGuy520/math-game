@@ -9,11 +9,12 @@ type SettingsBarProps = {
     handleSetMinutes: React.ChangeEventHandler<HTMLInputElement>,
     handleSetTimer: React.MouseEventHandler<HTMLButtonElement>,
     handleOperatorClick: MouseEventHandler<HTMLButtonElement>,
+    operators: string[],
     level: string,
     timer: number,
 }
 
-const SettingsBar = ({level, timer, handleLevelClick, handleSetSeconds, handleSetMinutes, handleSetTimer, handleOperatorClick}: SettingsBarProps) => {
+const SettingsBar = ({operators, level, timer, handleLevelClick, handleSetSeconds, handleSetMinutes, handleSetTimer, handleOperatorClick}: SettingsBarProps) => {
 
     const formatTimer = (): string => {
 
@@ -22,8 +23,6 @@ const SettingsBar = ({level, timer, handleLevelClick, handleSetSeconds, handleSe
         let seconds: string|number = 0;
 
         while(timerLeft > 0){
-
-            console.log(timerLeft);
 
             if(timerLeft >= 60){
                 minutes += 1;
@@ -34,7 +33,7 @@ const SettingsBar = ({level, timer, handleLevelClick, handleSetSeconds, handleSe
             } 
         }
 
-        return `${minutes}:${seconds === 0 ? '00' : seconds}`;
+        return `${minutes}:${seconds === 0 ? '00' : (seconds < 10 ? '0' + seconds : seconds)}`;
     }
 
     return (
@@ -44,25 +43,25 @@ const SettingsBar = ({level, timer, handleLevelClick, handleSetSeconds, handleSe
                     <div className="timer-settings">
                         <p><strong>Timer: </strong>{formatTimer()}</p>
                         <div className="timer-fields">
-                            <Input handleChange={handleSetMinutes} inputValue={"Minutes"} />
-                            <Input handleChange={handleSetSeconds} inputValue={"Seconds"} />
-                            <Button handleClick={handleSetTimer}>Set Timer</Button>
+                            <Input handleChange={handleSetMinutes} inputPlaceholder={"Minutes"} />
+                            <Input handleChange={handleSetSeconds} inputPlaceholder={"Seconds"} />
+                            <Button btnClasses={"btn-outline-primary"} handleClick={handleSetTimer}>Set Timer</Button>
                         </div>
                     </div>
                     <div className="level-settings">
                         <p><strong>Level: </strong>{level}</p>
                         <div className="level-buttons">
-                            <Button handleClick={handleLevelClick}>Easy</Button>
-                            <Button handleClick={handleLevelClick}>Medium</Button>
-                            <Button handleClick={handleLevelClick}>Hard</Button>
+                            <Button btnClasses={level.includes("Easy") ? "btn-success" : "btn-outline-success"} handleClick={handleLevelClick}>Easy</Button>
+                            <Button btnClasses={level.includes("Medium") ? "btn-warning" : "btn-outline-warning"} handleClick={handleLevelClick}>Medium</Button>
+                            <Button btnClasses={level.includes("Hard") ? "btn-danger" : "btn-outline-danger"} handleClick={handleLevelClick}>Hard</Button>
                         </div>
                     </div>
                     <div className="operators-settings">
-                        <p><strong>Operators</strong></p>
-                        <Button handleClick={handleOperatorClick}>Addition</Button>
-                        <Button handleClick={handleOperatorClick}>Subtraction</Button>
-                        <Button handleClick={handleOperatorClick}>Multiplication</Button>
-                        <Button handleClick={handleOperatorClick}>Division</Button>
+                        <p><strong>Operators: </strong>{operators.join(", ")}</p>
+                        <Button btnClasses={operators.includes("Addition") ? "btn-primary" : "btn-outline-primary"} handleClick={handleOperatorClick}>Addition</Button>
+                        <Button btnClasses={operators.includes("Subtraction") ? "btn-primary" : "btn-outline-primary"} handleClick={handleOperatorClick}>Subtraction</Button>
+                        <Button btnClasses={operators.includes("Multiplication") ? "btn-primary" : "btn-outline-primary"} handleClick={handleOperatorClick}>Multiplication</Button>
+                        <Button btnClasses={operators.includes("Division") ? "btn-primary" : "btn-outline-primary"} handleClick={handleOperatorClick}>Division</Button>
                     </div>
                 </div>
         </>        

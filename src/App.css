@@ -24,3 +24,30 @@
 .timer-fields {
   display: flex;
 }
+
+.game-container, .board-container {
+  display: flex;
+}
+
+.game-container {
+  flex-direction: row-reverse;
+  margin-top: 100px;
+}
+
+.board-container {
+  height: 20%;
+  margin: auto;
+}
+
+.board-container p {
+  font-size: 48px;
+  font-weight: 600;
+}
+
+.board-container input {
+  width: 120px;
+  height: 60px;
+  margin: auto 20px;
+  font-size: 42px;
+  padding: 20px;
+}

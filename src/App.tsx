@@ -1,6 +1,7 @@
 import React, { MouseEventHandler } from 'react'
 import './App.css'
 
+import Game from "./components/Game";
 import SettingsBar from "./components/SettingsBar";
 
 function App() {
@@ -11,7 +12,9 @@ function App() {
 
   const [level, setLevel] = React.useState<string>("Easy");
   const [operators, setOperators] = React.useState<Array<string>>([]);
-  
+
+  const [startTimer, setStartTimer] = React.useState<boolean>(false);
+  const [timeLeft, setTimeLeft] = React.useState<number>(0);  
 
   const handleSetSeconds = (event: React.ChangeEvent<HTMLInputElement>) => {
 
@@ -28,8 +31,8 @@ function App() {
     const totalSeconds = (minutes * 60) + seconds;
 
     setTimer(totalSeconds);
+    setTimeLeft(totalSeconds);
   }
-
 
   const handleLevelClick: MouseEventHandler<HTMLButtonElement> = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -53,20 +56,59 @@ function App() {
     setOperators(removeDuplicateOperators);
   }
 
-  console.log(operators);
+  const startGame = () => {
+
+    setStartTimer(true);
+  }
+
+  const stopGame = () => {
+    
+    setTimeLeft(timer);
+    setStartTimer(false);
+  }
+
+  React.useEffect(() => {
+
+    let timerInterval: number;
+
+    if(startTimer){
+
+      timerInterval = setInterval(() => {
+  
+        setTimeLeft((prevTime) => prevTime - 1);
+      }, 1000);
+      
+    }
+    
+    if(timeLeft === 0){
+      return () => clearInterval(timerInterval);
+    }
+
+    return () => clearInterval(timerInterval);
+
+  }, [startTimer]);
+
 
   return (
     <>
-     <h1>Math Game</h1>
-     <SettingsBar 
-        level={level} 
-        timer={timer}
-        handleSetTimer={handleSetTimer}
-        handleSetSeconds={handleSetSeconds}
-        handleSetMinutes={handleSetMinutes}
-        handleLevelClick={handleLevelClick} 
-        handleOperatorClick={handleOperatorClick}
-      />
+    <div className="container">
+      <h1>Math Game</h1>
+      <div className="settings-container">
+        <SettingsBar 
+            level={level} 
+            timer={timer}
+            operators={operators}
+            handleSetTimer={handleSetTimer}
+            handleSetSeconds={handleSetSeconds}
+            handleSetMinutes={handleSetMinutes}
+            handleLevelClick={handleLevelClick} 
+            handleOperatorClick={handleOperatorClick}
+          />
+      </div>
+      <div className="game-container">
+        <Game timeLeft={timeLeft} operators={operators} startGame={startGame} stopGame={stopGame} />
+      </div>
+    </div>
     </>
   )
 }

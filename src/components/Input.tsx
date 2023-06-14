@@ -2,15 +2,17 @@ import React from 'react';
 
 type InputProps = {
     handleChange: React.ChangeEventHandler<HTMLInputElement>,
-    inputValue: string
+    checkGuess: React.KeyboardEventHandler<HTMLInputElement>,
+    inputPlaceholder?: string,
+    inputValue?: string,
 }
 
 
-const Input = ({handleChange, inputValue}: InputProps) => {
+const Input = ({handleChange, checkGuess, inputPlaceholder, inputValue}: InputProps) => {
 
     return (
         <>
-            <input onChange={handleChange} placeholder={inputValue} className="input m-2 w-40" />
+            <input onChange={handleChange} placeholder={inputPlaceholder} onKeyDown={checkGuess} value={inputValue} className="input m-2 w-40" />
         </>
     )
 }
