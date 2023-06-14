@@ -1,7 +1,6 @@
 import React, { MouseEventHandler } from 'react'
 import './App.css'
 
-import Timer from "./components/Timer";
 import SettingsBar from "./components/SettingsBar";
 
 function App() {

@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from './Button';
 
 type TimerProps = {
     handleTimerInput: (value: React.ChangeEvent<HTMLInputElement>) => void,
