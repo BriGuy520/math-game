@@ -11,7 +11,7 @@ const Game = ({timeLeft, operators, stopGame, startGame}: GameProps) => {
   return (
     <>
       <Timer timeLeft={timeLeft} startGame={startGame} stopGame={stopGame} />
-      <Board operators={operators} />
+      <Board timeLeft={timeLeft} operators={operators} />
     </>
   )
 }

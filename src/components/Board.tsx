@@ -3,10 +3,11 @@ import React from 'react';
 import Input from './Input';
 
 export type BoardProps = {
+  timeLeft: number,
   operators: string[],
 }
 
-const Board = ({operators}: BoardProps) => {
+const Board = ({timeLeft, operators}: BoardProps) => {
 
   const [firstValue, setFirstValue] = React.useState(Math.floor(Math.floor(Math.random() * 10)));
   const [secondValue, setSecondValue] = React.useState(Math.floor(Math.floor(Math.random() * 10)));
@@ -69,7 +70,7 @@ const Board = ({operators}: BoardProps) => {
       </div>
       <div className="guess-container">
         <p>{firstValue} {displayOperator} {secondValue} = </p>
-        <Input handleChange={handleGuess} checkGuess={checkGuess} inputValue={guess} /> 
+        <Input timeLeft={timeLeft} handleChange={handleGuess} checkGuess={checkGuess} inputValue={guess} /> 
       </div>
     </div>
   );
