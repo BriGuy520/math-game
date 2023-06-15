@@ -1,7 +1,6 @@
 #root {
   max-width: 100%;
   padding: 2rem;
-
 }
 
 .settings-bar-section {
@@ -27,6 +26,7 @@
 
 .timer-container {
   text-align: center;
+  padding: 0px 40px 40px 40px;
 }
 
 .game-container, .board-container {
@@ -34,7 +34,7 @@
 }
 
 .game-container {
-  flex-direction: row-reverse;
+  flex-direction: column;
   margin-top: 100px;
 }
 
@@ -60,4 +60,8 @@
   margin: auto 20px;
   font-size: 42px;
   padding: 20px;
+}
+
+.score-container {
+  text-align: center;
 }

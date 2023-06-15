@@ -9,7 +9,7 @@ export type BoardProps = {
 const Board = ({operators}: BoardProps) => {
 
   const [firstValue, setFirstValue] = React.useState(Math.floor(Math.floor(Math.random() * 10)));
-  const [secondValue, setSecondValue] = React.useState(Math.floor(Math.floor(Math.random() * 20)));
+  const [secondValue, setSecondValue] = React.useState(Math.floor(Math.floor(Math.random() * 10)));
   const [operator, setOperator] = React.useState(operators[Math.floor(Math.random() * operators.length)]);
 
   const [guess, setGuess] = React.useState<string>("");
@@ -54,7 +54,7 @@ const Board = ({operators}: BoardProps) => {
       }
 
       setFirstValue(Math.floor(Math.floor(Math.random() * 10)));
-      setSecondValue(Math.floor(Math.floor(Math.random() * 20)));
+      setSecondValue(Math.floor(Math.floor(Math.random() * 10)));
       setOperator(operators[Math.floor(Math.random() * operators.length)]);
       setGuess("");
 
