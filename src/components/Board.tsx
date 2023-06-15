@@ -8,7 +8,7 @@ export type BoardProps = {
 
 const Board = ({operators}: BoardProps) => {
 
-  const [firstValue, setFirstValue] = React.useState(Math.floor(Math.floor(Math.random() * 20)));
+  const [firstValue, setFirstValue] = React.useState(Math.floor(Math.floor(Math.random() * 10)));
   const [secondValue, setSecondValue] = React.useState(Math.floor(Math.floor(Math.random() * 20)));
   const [operator, setOperator] = React.useState(operators[Math.floor(Math.random() * operators.length)]);
 
@@ -16,7 +16,7 @@ const Board = ({operators}: BoardProps) => {
 
   const [correct, setCorrect] = React.useState<number>(0);
 
-  const displayOperator: string = operator == "Addition" ? "+" : (operator == "Substraction" ? "-" : (operator == "Multiplication" ? "x" : "/"));
+  const displayOperator: string = operator == "Addition" ? "+" : (operator == "Subtraction" ? "-" : (operator == "Multiplication" ? "x" : "/"));
   let answer: number;
 
    /* Game */
@@ -46,12 +46,14 @@ const Board = ({operators}: BoardProps) => {
           answer = firstValue / secondValue;  
           break;
       }
+
+      console.log(answer);
   
       if(answer === parseInt(guess)){
         setCorrect(correct + 1);
       }
 
-      setFirstValue(Math.floor(Math.floor(Math.random() * 20)));
+      setFirstValue(Math.floor(Math.floor(Math.random() * 10)));
       setSecondValue(Math.floor(Math.floor(Math.random() * 20)));
       setOperator(operators[Math.floor(Math.random() * operators.length)]);
       setGuess("");
