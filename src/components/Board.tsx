@@ -8,29 +8,18 @@ export type BoardProps = {
 
 const Board = ({operators}: BoardProps) => {
 
-  const [firstValue, setFirstValue] = React.useState(Math.floor(Math.floor(Math.random() * 100)));
-  const [secondValue, setSecondValue] = React.useState(Math.floor(Math.floor(Math.random() * 100)));
+  const [firstValue, setFirstValue] = React.useState(Math.floor(Math.floor(Math.random() * 20)));
+  const [secondValue, setSecondValue] = React.useState(Math.floor(Math.floor(Math.random() * 20)));
+  const [operator, setOperator] = React.useState(operators[Math.floor(Math.random() * operators.length)]);
 
   const [guess, setGuess] = React.useState<string>("");
 
-  const selectedOperator: string = operators[Math.floor(Math.random() * operators.length)];
-  let displayOperator: string = selectedOperator == "Addition" ? "+" : (selectedOperator == "Substraction" ? "-" : (selectedOperator == "Multiplication" ? "x" : "/"));
+  const [correct, setCorrect] = React.useState<number>(0);
+
+  const displayOperator: string = operator == "Addition" ? "+" : (operator == "Substraction" ? "-" : (operator == "Multiplication" ? "x" : "/"));
   let answer: number;
 
-
-  
-  if(selectedOperator === "Addition"){
-    displayOperator = "+";
-  } else if(selectedOperator === "Subtraction"){
-    displayOperator = "-";
-  } else if(selectedOperator === "Multiplication"){
-    displayOperator = "x";
-  } else if(selectedOperator === "Divsion"){
-    displayOperator = "/";
-  }
-
-
-    /* Game */
+   /* Game */
 
   const handleGuess = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -42,7 +31,7 @@ const Board = ({operators}: BoardProps) => {
 
     if(e.key === 'Enter'){
 
-      switch(selectedOperator){
+      switch(operator){
 
         case 'Addition':
           answer = firstValue + secondValue;
@@ -58,18 +47,28 @@ const Board = ({operators}: BoardProps) => {
           break;
       }
   
-      console.log(answer);
+      if(answer === parseInt(guess)){
+        setCorrect(correct + 1);
+      }
+
+      setFirstValue(Math.floor(Math.floor(Math.random() * 20)));
+      setSecondValue(Math.floor(Math.floor(Math.random() * 20)));
+      setOperator(operators[Math.floor(Math.random() * operators.length)]);
+      setGuess("");
+
     }
-
   }
-
-  console.log(displayOperator);
 
   return (
     
     <div className="board-container">
-      <p>{firstValue} {displayOperator} {secondValue}</p>
-      <Input handleChange={handleGuess} checkGuess={checkGuess} inputValue={guess} />
+      <div className="score-container">
+        <p>Correct Answers: <b>{correct}</b></p>
+      </div>
+      <div className="guess-container">
+        <p>{firstValue} {displayOperator} {secondValue} = </p>
+        <Input handleChange={handleGuess} checkGuess={checkGuess} inputValue={guess} /> 
+      </div>
     </div>
   );
 

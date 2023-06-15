@@ -25,6 +25,10 @@
   display: flex;
 }
 
+.timer-container {
+  text-align: center;
+}
+
 .game-container, .board-container {
   display: flex;
 }
@@ -35,11 +39,17 @@
 }
 
 .board-container {
+  display: flex;
+  flex-direction: column;
   height: 20%;
   margin: auto;
 }
 
-.board-container p {
+.guess-container {
+  display: flex;
+}
+
+.guess-container p {
   font-size: 48px;
   font-weight: 600;
 }
