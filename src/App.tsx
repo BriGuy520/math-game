@@ -30,8 +30,10 @@ function App() {
     
     const totalSeconds = (minutes * 60) + seconds;
 
-    setTimer(totalSeconds);
-    setTimeLeft(totalSeconds);
+      setTimer(totalSeconds);
+      setTimeLeft(totalSeconds);
+
+
   }
 
   const handleLevelClick: MouseEventHandler<HTMLButtonElement> = (e: React.MouseEvent<HTMLButtonElement>) => {

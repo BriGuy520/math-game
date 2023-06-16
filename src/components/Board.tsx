@@ -9,7 +9,7 @@ export type BoardProps = {
 
 const Board = ({timeLeft, operators}: BoardProps) => {
 
-  const [firstValue, setFirstValue] = React.useState(Math.floor(Math.floor(Math.random() * 10)));
+  const [firstValue, setFirstValue] = React.useState(Math.floor(Math.floor(Math.random() * 20)));
   const [secondValue, setSecondValue] = React.useState(Math.floor(Math.floor(Math.random() * 10)));
   const [operator, setOperator] = React.useState(operators[Math.floor(Math.random() * operators.length)]);
 
