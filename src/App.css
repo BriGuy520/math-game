@@ -8,43 +8,6 @@
   justify-content: space-around;
 }
 
-.timer-settings, .operators-settings {
-  width: 40%;
-}
-
-.level-settings {
-  width: 20%;
-}
-
-.timer-settings p, .level-settings p, .operators-settings p {
-  margin-bottom: 4px;
-}
-
-.timer-fields {
-  display: flex;
-}
-
-.timer-container {
-  text-align: center;
-  padding: 0px 40px 40px 40px;
-}
-
-.game-container, .board-container {
-  display: flex;
-}
-
-.game-container {
-  flex-direction: column;
-  margin-top: 100px;
-}
-
-.board-container {
-  display: flex;
-  flex-direction: column;
-  height: 20%;
-  margin: auto;
-}
-
 .guess-container {
   display: flex;
 }
@@ -65,3 +28,56 @@
 .score-container {
   text-align: center;
 }
+
+.settings-bar-section {
+  flex-direction: column;
+}
+
+.timer-settings, .operators-settings, .level-settings {
+  width: 100%;
+}
+
+@media(min-width: 1299px){
+
+  .settings-bar-section {
+    flex-direction: row;
+  }
+
+  .timer-settings, .operators-settings {
+    width: 40%;
+  }
+  
+  .level-settings {
+    width: 20%;
+  }
+  
+  .timer-settings p, .level-settings p, .operators-settings p {
+    margin-bottom: 4px;
+  }
+  
+  .timer-fields {
+    display: flex;
+  }
+  
+  .timer-container {
+    text-align: center;
+    padding: 0px 40px 40px 40px;
+  }
+  
+  .game-container, .board-container {
+    display: flex;
+  }
+  
+  .game-container {
+    flex-direction: column;
+    margin-top: 100px;
+  }
+  
+  .board-container {
+    display: flex;
+    flex-direction: column;
+    height: 20%;
+    margin: auto;
+  }
+}
+
