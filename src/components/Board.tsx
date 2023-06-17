@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Input from './Input';
+import Scores from './Scores';
+
 
 export type BoardProps = {
   timeLeft: number,
@@ -66,18 +68,24 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
   return (
     
     <div className="board-container">
-      <div className="score-container">
-        <p>Correct Answers: <b>{correct}</b></p>
+      <div className="play-container">
+        <div className="score-container">
+          <p>Correct Answers: <b>{correct}</b></p>
+        </div>
+          {operators.length > 0 && startTimer ? 
+              <div className="guess-container">
+                    <h2>{firstValue} {displayOperator} {secondValue} = </h2>
+                    <Input timeLeft={timeLeft} handleChange={handleGuess} checkGuess={checkGuess} inputValue={guess} /> 
+              </div>
+            :
+            <div className="guess-container">
+              <p>Please select your operators and start timer</p>
+            </div>
+          }
       </div>
-      {operators.length > 0 && startTimer ? 
-          <div className="guess-container">
-            
-                <p>{firstValue} {displayOperator} {secondValue} = </p>
-                <Input timeLeft={timeLeft} handleChange={handleGuess} checkGuess={checkGuess} inputValue={guess} /> 
-          </div>
-        :
-          <p>Please select your operators and start timer</p>
-      }
+      <div className="scores-container">
+        <Scores />
+      </div>
     </div>
   );
 

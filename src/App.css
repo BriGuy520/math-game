@@ -3,8 +3,11 @@
   padding: 2rem;
 }
 
-.settings-bar-section {
+.settings-bar-section, .timer-fields, .game-container, .board-container, .score-container {
   display: flex;
+}
+
+.settings-bar-section {
   justify-content: space-around;
 }
 
@@ -12,7 +15,7 @@
   display: flex;
 }
 
-.guess-container p {
+.guess-container h2 {
   font-size: 48px;
   font-weight: 600;
 }
@@ -55,28 +58,20 @@
     margin-bottom: 4px;
   }
   
-  .timer-fields {
-    display: flex;
-  }
-  
   .timer-container {
     text-align: center;
+    width: 33%;
     padding: 0px 40px 40px 40px;
-  }
-  
-  .game-container, .board-container {
-    display: flex;
   }
   
   .game-container {
     margin-top: 100px;
   }
-  
+
   .board-container {
-    display: flex;
-    flex-direction: column;
-    height: 20%;
-    margin: auto;
-  }
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-evenly;
+}
 }
 
