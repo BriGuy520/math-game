@@ -30,10 +30,8 @@ function App() {
     
     const totalSeconds = (minutes * 60) + seconds;
 
-      setTimer(totalSeconds);
-      setTimeLeft(totalSeconds);
-
-
+    setTimer(totalSeconds);
+    setTimeLeft(totalSeconds);
   }
 
   const handleLevelClick: MouseEventHandler<HTMLButtonElement> = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -100,15 +98,15 @@ function App() {
             level={level} 
             timer={timer}
             operators={operators}
-            handleSetTimer={handleSetTimer}
+            handleSetTimer={handleSetTimer} 
             handleSetSeconds={handleSetSeconds}
             handleSetMinutes={handleSetMinutes}
             handleLevelClick={handleLevelClick} 
             handleOperatorClick={handleOperatorClick}
           />
-      </div>
+      </div> 
       <div className="game-container">
-        <Game timeLeft={timeLeft} operators={operators} startGame={startGame} stopGame={stopGame} />
+        <Game timeLeft={timeLeft} operators={operators} startGame={startGame} stopGame={stopGame} startTimer={startTimer} />
       </div>
     </div>
     </>

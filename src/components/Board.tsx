@@ -4,14 +4,15 @@ import Input from './Input';
 
 export type BoardProps = {
   timeLeft: number,
+  startTimer: boolean,
   operators: string[],
 }
 
-const Board = ({timeLeft, operators}: BoardProps) => {
+const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
 
-  const [firstValue, setFirstValue] = React.useState(Math.floor(Math.floor(Math.random() * 20)));
-  const [secondValue, setSecondValue] = React.useState(Math.floor(Math.floor(Math.random() * 10)));
-  const [operator, setOperator] = React.useState(operators[Math.floor(Math.random() * operators.length)]);
+  const [firstValue, setFirstValue] = React.useState<number>(Math.floor(Math.floor(Math.random() * 20)));
+  const [secondValue, setSecondValue] = React.useState<number>(Math.floor(Math.floor(Math.random() * 20)));
+  const [operator, setOperator] = React.useState<string>(operators[Math.floor(Math.random() * operators.length)]);
 
   const [guess, setGuess] = React.useState<string>("");
 
@@ -68,10 +69,15 @@ const Board = ({timeLeft, operators}: BoardProps) => {
       <div className="score-container">
         <p>Correct Answers: <b>{correct}</b></p>
       </div>
-      <div className="guess-container">
-        <p>{firstValue} {displayOperator} {secondValue} = </p>
-        <Input timeLeft={timeLeft} handleChange={handleGuess} checkGuess={checkGuess} inputValue={guess} /> 
-      </div>
+      {operators.length > 0 && startTimer ? 
+          <div className="guess-container">
+            
+                <p>{firstValue} {displayOperator} {secondValue} = </p>
+                <Input timeLeft={timeLeft} handleChange={handleGuess} checkGuess={checkGuess} inputValue={guess} /> 
+          </div>
+        :
+          <p>Please select your operators and start timer</p>
+      }
     </div>
   );
 
