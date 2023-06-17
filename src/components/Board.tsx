@@ -51,7 +51,7 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
 
       console.log(answer);
   
-      if(answer === parseInt(guess)){
+      if(answer === parseInt(guess) && timeLeft > 0){
         setCorrect(correct + 1);
       }
 
