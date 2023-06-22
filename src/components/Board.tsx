@@ -23,7 +23,6 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
   const [guess, setGuess] = React.useState<string>("");
 
   const [correct, setCorrect] = React.useState<number>();
-  const [finalCorrect, setFinalCorrect] = React.useState<number>();
 
   const [highScores, setHighScores] = React.useState<number[]>([]);
 
@@ -81,8 +80,6 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
       const newHighScores = [...highScores, correct];
 
       setHighScores(newHighScores);
-
-      setFinalCorrect(correct);
     }
 
   }, [timeLeft, startTimer]);
