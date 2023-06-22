@@ -23,6 +23,7 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
   const [guess, setGuess] = React.useState<string>("");
 
   const [correct, setCorrect] = React.useState<number>(0);
+  const [finalCorrect, setFinalCorrect] = React.useState<number>(0);
 
   const displayOperator: string = operator == "Addition" ? "+" : (operator == "Subtraction" ? "-" : (operator == "Multiplication" ? "x" : "/"));
   let answer: number;
@@ -55,7 +56,7 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
           break;
       }
   
-      if(parseFloat(guess) === parseFloat(answer.toFixed(2))){
+      if(parseFloat(guess) === parseFloat(answer.toFixed(2)) && timeLeft > 0){
         setCorrect(correct + 1);
       }
 
@@ -66,6 +67,16 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
 
     }
   }
+
+  React.useEffect(() => {
+
+    if(timeLeft === 0){
+      console.log("Times up");
+      setFinalCorrect(correct);
+    }
+
+  }, [timeLeft]);
+
 
   return (
     
@@ -86,7 +97,7 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
           }
       </div>
       <div className="scores-container">
-        <Scores correct={correct} />
+        <Scores correct={finalCorrect} />
       </div>
     </div>
   );

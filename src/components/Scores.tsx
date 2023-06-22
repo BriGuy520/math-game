@@ -10,10 +10,7 @@ const Scores = ({correct}: ScoresProps) => {
 
   const newHighScores = [...highScores, correct].sort();
 
-  // setHighScores(currentScores.sort());
-
   const highScoresList = newHighScores.map((score, idx) =>  <li key={idx}>{score}</li>);
-
 
   return (
     <> 
