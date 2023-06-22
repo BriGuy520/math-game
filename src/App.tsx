@@ -16,6 +16,7 @@ function App() {
   const [startTimer, setStartTimer] = React.useState<boolean>(false);
   const [timeLeft, setTimeLeft] = React.useState<number>(0);  
 
+  
   const handleSetSeconds = (event: React.ChangeEvent<HTMLInputElement>) => {
 
       setSeconds(parseInt(event.target.value));

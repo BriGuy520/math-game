@@ -1,16 +1,13 @@
 import React from 'react';
 
 type ScoresProps = {
-  correct: number,
+  highScores: number[],
 }
 
-const Scores = ({correct}: ScoresProps) => {
+const Scores = ({highScores}: ScoresProps) => {
 
-  let highScores: number[] = [];
+  const highScoresList = highScores.sort((a:number, b:number) => b - a).map((score, idx) =>  <li key={idx}>{score}</li>);
 
-  const newHighScores = [...highScores, correct].sort();
-
-  const highScoresList = newHighScores.map((score, idx) =>  <li key={idx}>{score}</li>);
 
   return (
     <> 

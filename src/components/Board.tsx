@@ -25,6 +25,8 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
   const [correct, setCorrect] = React.useState<number>(0);
   const [finalCorrect, setFinalCorrect] = React.useState<number>(0);
 
+  const [highScores, setHighScores] = React.useState<number[]>([]);
+
   const displayOperator: string = operator == "Addition" ? "+" : (operator == "Subtraction" ? "-" : (operator == "Multiplication" ? "x" : "/"));
   let answer: number;
 
@@ -70,12 +72,20 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
 
   React.useEffect(() => {
 
+    if(!startTimer){
+      setCorrect(0);
+    }
+
     if(timeLeft === 0){
-      console.log("Times up");
+      
+      const newHighScores = [...highScores, correct];
+
+      setHighScores(newHighScores);
+
       setFinalCorrect(correct);
     }
 
-  }, [timeLeft]);
+  }, [timeLeft, startTimer]);
 
 
   return (
@@ -97,7 +107,7 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
           }
       </div>
       <div className="scores-container">
-        <Scores correct={finalCorrect} />
+        <Scores highScores={highScores} />
       </div>
     </div>
   );
