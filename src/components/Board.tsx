@@ -54,11 +54,6 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
           answer = firstValue / secondValue;  
           break;
       }
-
-      console.log(parseFloat(guess));
-      console.log(parseFloat(answer.toFixed(2)));
-
-      console.log(parseFloat(guess) === parseFloat(answer.toFixed(2)));
   
       if(parseFloat(guess) === parseFloat(answer.toFixed(2))){
         setCorrect(correct + 1);
@@ -81,8 +76,8 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
         </div>
           {operators.length > 0 && startTimer ? 
               <div className="guess-container">
-                    <h2>{firstValue} {displayOperator} {secondValue} = </h2>
-                    <Input timeLeft={timeLeft} handleChange={handleGuess} checkGuess={checkGuess} inputValue={guess} /> 
+                  <h2>{firstValue} {displayOperator} {secondValue} = </h2>
+                  <Input timeLeft={timeLeft} handleChange={handleGuess} checkGuess={checkGuess} inputValue={guess} /> 
               </div>
             :
             <div className="guess-container">
@@ -91,7 +86,7 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
           }
       </div>
       <div className="scores-container">
-        <Scores />
+        <Scores correct={correct} />
       </div>
     </div>
   );

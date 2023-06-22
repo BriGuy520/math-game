@@ -1,12 +1,25 @@
 import React from 'react';
 
-const Scores = () => {
+type ScoresProps = {
+  correct: number,
+}
+
+const Scores = ({correct}: ScoresProps) => {
+
+  let highScores: number[] = [];
+
+  const newHighScores = [...highScores, correct].sort();
+
+  // setHighScores(currentScores.sort());
+
+  const highScoresList = newHighScores.map((score, idx) =>  <li key={idx}>{score}</li>);
+
 
   return (
     <> 
       <h4>High Scores</h4>
       <ol>
-        <li></li>
+        {highScoresList}
       </ol>
     </>
   );
