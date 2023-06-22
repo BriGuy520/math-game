@@ -13,7 +13,7 @@ const Scores = ({highScores}: ScoresProps) => {
     <> 
       <h4>High Scores</h4>
       <ol>
-        {highScoresList}
+        {highScoresList.length > 0 ? highScoresList : <li></li>}
       </ol>
     </>
   );
