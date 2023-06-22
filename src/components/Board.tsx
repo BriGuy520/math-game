@@ -16,6 +16,10 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
   const [secondValue, setSecondValue] = React.useState<number>(Math.floor(Math.floor(Math.random() * 20)));
   const [operator, setOperator] = React.useState<string>(operators[Math.floor(Math.random() * operators.length)]);
 
+  if(operator == "Division" && secondValue == 0){
+    setSecondValue(Math.floor(Math.floor(Math.random() * 10)));
+  }
+
   const [guess, setGuess] = React.useState<string>("");
 
   const [correct, setCorrect] = React.useState<number>(0);
@@ -51,9 +55,12 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
           break;
       }
 
-      console.log(answer);
+      console.log(parseFloat(guess));
+      console.log(parseFloat(answer.toFixed(2)));
+
+      console.log(parseFloat(guess) === parseFloat(answer.toFixed(2)));
   
-      if(answer === parseInt(guess) && timeLeft > 0){
+      if(parseFloat(guess) === parseFloat(answer.toFixed(2))){
         setCorrect(correct + 1);
       }
 
