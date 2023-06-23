@@ -16,15 +16,14 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
   const [secondValue, setSecondValue] = React.useState<number>(Math.floor(Math.floor(Math.random() * 20)));
   const [operator, setOperator] = React.useState<string>(operators[Math.floor(Math.random() * operators.length)]);
 
+  const [guess, setGuess] = React.useState<string>("");
+  const [correct, setCorrect] = React.useState<number>();
+  const [highScores, setHighScores] = React.useState<number[]>([]);
+  
   if(operator == "Division" && secondValue == 0){
     setSecondValue(Math.floor(Math.floor(Math.random() * 10)));
   }
 
-  const [guess, setGuess] = React.useState<string>("");
-
-  const [correct, setCorrect] = React.useState<number>();
-
-  const [highScores, setHighScores] = React.useState<number[]>([]);
 
   const displayOperator: string = operator == "Addition" ? "+" : (operator == "Subtraction" ? "-" : (operator == "Multiplication" ? "x" : "/"));
   let answer: number;

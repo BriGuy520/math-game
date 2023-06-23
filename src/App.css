@@ -32,6 +32,10 @@
   text-align: center;
 }
 
+.play-container, .scores-container {
+  margin: auto 0;
+}
+
 .settings-bar-section {
   flex-direction: column;
 }
@@ -60,8 +64,8 @@
   
   .timer-container {
     text-align: center;
-    width: 33%;
-    padding: 0px 40px 40px 40px;
+    width: 20%;
+    padding: 20px;
   }
   
   .game-container {
