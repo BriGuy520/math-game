@@ -7,6 +7,14 @@
   display: flex;
 }
 
+.game-container {
+  padding: 60px 0;
+}
+
+.timer-container {
+  width: 33%;
+}
+
 .settings-bar-section {
   justify-content: space-around;
 }
@@ -33,7 +41,7 @@
 }
 
 .play-container, .scores-container {
-  margin: auto 0;
+  margin: auto 20px;
 }
 
 .settings-bar-section {
@@ -42,6 +50,7 @@
 
 .timer-settings, .operators-settings, .level-settings {
   width: 100%;
+  padding: 10px 0;
 }
 
 @media(min-width: 1299px){
