@@ -29,10 +29,7 @@ const Timer = ({timeLeft, startGame, stopGame}: TimerProps) => {
         return `${minutes}:${seconds === 0 ? '00' : (seconds < 10 ? '0' + seconds : seconds)}`;
     }
 
-
     let timerColor: string = timeLeft <= 10 ? 'red' : '#000';
-
-    console.log(timerColor);
 
     return (
         <div className="timer-container">

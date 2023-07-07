@@ -36,7 +36,11 @@
   padding: 20px;
 }
 
-.score-container {
+.scores-container {
+  border: 2px solid #000;
+  padding: 20px;
+  height: 300px;
+  width: 300px;
   text-align: center;
 }
 

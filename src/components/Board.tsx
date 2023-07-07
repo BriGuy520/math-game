@@ -76,7 +76,7 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
 
     if(timeLeft === 0){
       
-      const newHighScores = [...highScores, correct];
+      let newHighScores = [...highScores, correct];
 
       setHighScores(newHighScores);
     }

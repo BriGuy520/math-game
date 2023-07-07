@@ -59,7 +59,11 @@ function App() {
 
   const startGame = () => {
 
-    setStartTimer(true);
+    if(operators.length > 0){
+
+      setStartTimer(true);
+    }
+
   }
 
   const stopGame = () => {
