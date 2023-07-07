@@ -11,6 +11,10 @@
   padding: 60px 0;
 }
 
+.board-container {
+  margin-top: 60px;
+}
+
 .timer-container {
   width: 33%;
 }
@@ -49,6 +53,7 @@
 
 .play-container {
   width: 35%;
+  margin: 20px;
 }
 
 .play-container, .scores-container {
@@ -66,32 +71,36 @@
 
 @media(min-width: 1299px){
 
-  .settings-bar-section {
-    flex-direction: row;
-  }
+    .settings-bar-section {
+      flex-direction: row;
+    }
 
-  .timer-settings, .operators-settings {
-    width: 40%;
+    .timer-container, .play-container, .score-container {
+      width: 33%;
+    }
+
+    .timer-settings, .operators-settings {
+      width: 40%;
+    }
+    
+    .level-settings {
+      width: 29%;
+    }
+    
+    .timer-settings p, .level-settings p, .operators-settings p {
+      margin-bottom: 4px;
+    }
+    
+    .timer-container {
+      text-align: center;
+      width: 20%;
+      padding: 20px;
+    }
+    
+    .board-container {
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-evenly;
   }
-  
-  .level-settings {
-    width: 29%;
-  }
-  
-  .timer-settings p, .level-settings p, .operators-settings p {
-    margin-bottom: 4px;
-  }
-  
-  .timer-container {
-    text-align: center;
-    width: 20%;
-    padding: 20px;
-  }
-  
-  .board-container {
-    flex-direction: row;
-    width: 80%;
-    justify-content: space-evenly;
-}
 }
 
