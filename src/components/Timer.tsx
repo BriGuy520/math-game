@@ -29,11 +29,16 @@ const Timer = ({timeLeft, startGame, stopGame}: TimerProps) => {
         return `${minutes}:${seconds === 0 ? '00' : (seconds < 10 ? '0' + seconds : seconds)}`;
     }
 
+
+    let timerColor: string = timeLeft <= 10 ? 'red' : '#000';
+
+    console.log(timerColor);
+
     return (
         <div className="timer-container">
 
             <div>
-                <h1>{formatTimer()}</h1>
+                <h1 style={{'color': timerColor}}>{formatTimer()}</h1>
                 <Button btnClasses={"btn-outline-info"} handleClick={startGame}>Start</Button>
                 <Button btnClasses={"btn-outline-danger"} handleClick={stopGame}>Stop</Button>
             </div>
