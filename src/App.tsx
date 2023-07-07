@@ -93,7 +93,7 @@ function App() {
   return (
     <>
     <div className="container">
-      <h1>Math Game</h1>
+      <h1 style={{'marginBottom': '48px'}}>Math Game</h1>
       <div className="settings-container">
         <SettingsBar 
             level={level} 
