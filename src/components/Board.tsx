@@ -8,12 +8,17 @@ export type BoardProps = {
   timeLeft: number,
   startTimer: boolean,
   operators: string[],
+  level: string
 }
 
-const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
+const Board = ({timeLeft, startTimer, operators, level}: BoardProps) => {
 
-  const [firstValue, setFirstValue] = React.useState<number>(Math.floor(Math.floor(Math.random() * 20)));
-  const [secondValue, setSecondValue] = React.useState<number>(Math.floor(Math.floor(Math.random() * 20)));
+  const levelNum: number = level === "Easy" ? 20 : (level === "Medium" ? 40 : 60);
+
+  console.log(levelNum);
+
+  const [firstValue, setFirstValue] = React.useState<number>(Math.floor(Math.floor(Math.random() * levelNum)));
+  const [secondValue, setSecondValue] = React.useState<number>(Math.floor(Math.floor(Math.random() * levelNum)));
   const [operator, setOperator] = React.useState<string>(operators[Math.floor(Math.random() * operators.length)]);
 
   const [guess, setGuess] = React.useState<string>("");
@@ -21,7 +26,7 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
   const [highScores, setHighScores] = React.useState<number[]>([]);
   
   if(operator == "Division" && secondValue == 0){
-    setSecondValue(Math.floor(Math.floor(Math.random() * 10)));
+    setSecondValue(Math.floor(Math.floor(Math.random() * levelNum)));
   }
 
 
@@ -60,8 +65,8 @@ const Board = ({timeLeft, startTimer, operators}: BoardProps) => {
         setCorrect(correct + 1);
       }
 
-      setFirstValue(Math.floor(Math.floor(Math.random() * 10)));
-      setSecondValue(Math.floor(Math.floor(Math.random() * 10)));
+      setFirstValue(Math.floor(Math.floor(Math.random() * levelNum)));
+      setSecondValue(Math.floor(Math.floor(Math.random() * levelNum)));
       setOperator(operators[Math.floor(Math.random() * operators.length)]);
       setGuess("");
 

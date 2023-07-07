@@ -41,7 +41,10 @@
   padding: 20px;
   height: 300px;
   width: 300px;
-  text-align: center;
+}
+
+.scores-container ol li {
+  font-size: 24px;
 }
 
 .play-container {
