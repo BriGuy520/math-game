@@ -13,7 +13,7 @@ const Input = ({handleChange, checkGuess, timeLeft, inputPlaceholder, inputValue
 
     return (
         <>
-            <input disabled={timeLeft === 0} onChange={handleChange} placeholder={inputPlaceholder} onKeyDown={checkGuess} value={inputValue} className="input m-2 w-40" />
+            <input disabled={timeLeft === 0} onChange={handleChange} placeholder={inputPlaceholder} onKeyDown={checkGuess} value={inputValue} className="input m-2 w-25" />
         </>
     )
 }
