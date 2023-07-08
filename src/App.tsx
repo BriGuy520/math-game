@@ -48,13 +48,18 @@ function App() {
 
     const targetElement = e.target as HTMLButtonElement;
 
-    const operatorsSelected: Array<string> = [...operators];
+    let operatorsSelected: Array<string> = [...operators];
 
-    operatorsSelected.push(targetElement.innerHTML);
+    if(operatorsSelected.includes(targetElement.innerHTML)){
 
-    const removeDuplicateOperators = [...new Set(operatorsSelected)];
+      operatorsSelected = operatorsSelected.filter(operator => operator !== targetElement.innerHTML);
+    
+    } else {
 
-    setOperators(removeDuplicateOperators);
+      operatorsSelected.push(targetElement.innerHTML);
+    }
+
+    setOperators(operatorsSelected);
   }
 
   const startGame = () => {
