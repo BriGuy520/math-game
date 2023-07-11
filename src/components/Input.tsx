@@ -12,13 +12,13 @@ type InputProps = {
 
 const Input = ({handleChange, checkGuess, startTimer, timeLeft, inputPlaceholder, inputValue}: InputProps) => {
 
-    const gameInProgress = React.useRef(null);
+    const gameInProgress = React.useRef<HTMLInputElement>(null);
 
 
     React.useEffect(() => {
 
         if(startTimer){
-            gameInProgress.current.focus();
+            gameInProgress.current?.focus();
         }
 
     }, [gameInProgress]);
