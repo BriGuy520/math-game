@@ -23,7 +23,7 @@ const Game = ({startTimer, operators, level, timeLeft, startGame, stopGame}: Gam
   const [operator, setOperator] = React.useState<string>(operators[Math.floor(Math.random() * operators.length)]);
 
   const [guess, setGuess] = React.useState<string>("");
-  const [correct, setCorrect] = React.useState<number>(0);
+  const [correct, setCorrect] = React.useState<number>();
   const [highScores, setHighScores] = React.useState<number[]>([]);
   
   if(operator == "Division" && secondValue == 0){
