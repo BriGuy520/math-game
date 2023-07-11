@@ -2,33 +2,35 @@ import React from 'react';
 
 import Input from './Input';
 import Scores from './Scores';
+import Timer from './Timer';
 
 
 export type BoardProps = {
   timeLeft: number,
   startTimer: boolean,
   operators: string[],
-  level: string
+  level: string,
+  startGame: React.MouseEventHandler<HTMLButtonElement>,
+  stopGame: React.MouseEventHandler<HTMLButtonElement>
 }
 
-const Board = ({timeLeft, startTimer, operators, level}: BoardProps) => {
+
+const Board = ({startTimer, operators, level, timeLeft, startGame, stopGame}: BoardProps) => {
 
   const levelNum: number = level === "Easy" ? 20 : (level === "Medium" ? 40 : 60);
 
-  console.log(startTimer);
 
   const [firstValue, setFirstValue] = React.useState<number>(Math.floor(Math.floor(Math.random() * levelNum)));
   const [secondValue, setSecondValue] = React.useState<number>(Math.floor(Math.floor(Math.random() * levelNum)));
   const [operator, setOperator] = React.useState<string>(operators[Math.floor(Math.random() * operators.length)]);
 
   const [guess, setGuess] = React.useState<string>("");
-  const [correct, setCorrect] = React.useState<number>();
+  const [correct, setCorrect] = React.useState<number>(0);
   const [highScores, setHighScores] = React.useState<number[]>([]);
   
   if(operator == "Division" && secondValue == 0){
     setSecondValue(Math.floor(Math.floor(Math.random() * levelNum)));
   }
-
 
   const displayOperator: string = operator == "Addition" ? "+" : (operator == "Subtraction" ? "-" : (operator == "Multiplication" ? "x" : "/"));
   let answer: number;
@@ -93,6 +95,7 @@ const Board = ({timeLeft, startTimer, operators, level}: BoardProps) => {
     
     <div className="board-container">
       <div className="play-container">
+        <Timer timeLeft={timeLeft} startGame={startGame} stopGame={stopGame} />
         <div className="score-container">
           <p>Correct Answers: <b>{correct}</b></p>
         </div>
