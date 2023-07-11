@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from 'react'
 import './App.css'
 
-import Board from "./components/Board";
+import Game from "./components/Game";
 import SettingsBar from "./components/SettingsBar";
 
 function App() {
@@ -115,7 +115,7 @@ function App() {
           handleOperatorClick={handleOperatorClick}
         />
       </div> 
-      <Board timeLeft={timeLeft} startTimer={startTimer} operators={operators} level={level} timeLeft={timeLeft} startGame={startGame} stopGame={stopGame} />
+      <Game timeLeft={timeLeft} startTimer={startTimer} operators={operators} level={level} timeLeft={timeLeft} startGame={startGame} stopGame={stopGame} />
     </div>
     </>
   )
