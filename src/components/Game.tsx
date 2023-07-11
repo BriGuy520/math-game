@@ -75,6 +75,13 @@ const Game = ({startTimer, operators, level, timeLeft, startGame, stopGame}: Gam
 
   React.useEffect(() => {
 
+    setOperator(operators[Math.floor(Math.random() * operators.length)]);
+    
+  }, [operators]);
+  
+
+  React.useEffect(() => {
+
     if(!startTimer){
       setCorrect(0);
     }

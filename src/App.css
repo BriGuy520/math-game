@@ -49,6 +49,8 @@
   padding: 20px;
   min-height: 350px;
   width: 30%;
+  border-radius: 10px; 
+  box-shadow: 5px 20px 25px 7px #ccc;
 }
 
 .scores-container ol li {
@@ -98,7 +100,7 @@
     .timer-container {
       text-align: center;
       width: 100%;
-      padding: 80px 0 20px 0;
+      padding: 0 0 40px 0;
     }
     
     .board-container {
