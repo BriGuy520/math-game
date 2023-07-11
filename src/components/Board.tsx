@@ -15,7 +15,7 @@ const Board = ({timeLeft, startTimer, operators, level}: BoardProps) => {
 
   const levelNum: number = level === "Easy" ? 20 : (level === "Medium" ? 40 : 60);
 
-  console.log(levelNum);
+  console.log(startTimer);
 
   const [firstValue, setFirstValue] = React.useState<number>(Math.floor(Math.floor(Math.random() * levelNum)));
   const [secondValue, setSecondValue] = React.useState<number>(Math.floor(Math.floor(Math.random() * levelNum)));
@@ -99,7 +99,7 @@ const Board = ({timeLeft, startTimer, operators, level}: BoardProps) => {
           {operators.length > 0 && startTimer ? 
               <div className="guess-container">
                   <h2>{firstValue} {displayOperator} {secondValue} = </h2>
-                  <Input timeLeft={timeLeft} handleChange={handleGuess} checkGuess={checkGuess} inputValue={guess} /> 
+                  <Input startTimer={startTimer} timeLeft={timeLeft} handleChange={handleGuess} checkGuess={checkGuess} inputValue={guess} /> 
               </div>
             :
             <div className="guess-container">
