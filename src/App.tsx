@@ -125,7 +125,9 @@ function App() {
       <h1 style={{'marginBottom': '48px'}}>Math Game</h1>
       <div className="settings-container">
         <SettingsBar 
-          level={level} 
+          level={level}
+          seconds={seconds}
+          minutes={minutes} 
           timer={timer}
           slideValue={slideValue}
           operators={operators}

@@ -12,11 +12,13 @@ type SettingsBarProps = {
     handleOperatorClick: MouseEventHandler<HTMLButtonElement>,
     operators: string[],
     level: string,
+    seconds: number,
+    minutes: number,
     timer: number,
     slideValue: number,
 }
 
-const SettingsBar = ({operators, level, timer, slideValue, handleLevelClick, handleSetSeconds, handleSetMinutes, handleSlideChange, handleSetTimer, handleOperatorClick}: SettingsBarProps) => {
+const SettingsBar = ({operators, level, timer, seconds, minutes, slideValue, handleLevelClick, handleSetSeconds, handleSetMinutes, handleSlideChange, handleSetTimer, handleOperatorClick}: SettingsBarProps) => {
 
     const [value, setValue] = React.useState<number>(0);
 
@@ -47,12 +49,12 @@ const SettingsBar = ({operators, level, timer, slideValue, handleLevelClick, han
                     <div className="timer-settings">
                         <p><strong>Timer: </strong>{formatTimer()}</p>
                         <div className="timer-fields">
-                            <Input handleChange={handleSetMinutes} inputPlaceholder={"Minutes"} />
-                            <Input handleChange={handleSetSeconds} inputPlaceholder={"Seconds"} />
+                            <Input handleChange={handleSetMinutes} inputPlaceholder={"Minutes"} inputValue={minutes} />
+                            <Input handleChange={handleSetSeconds} inputPlaceholder={"Seconds"} inputValue={seconds} />
                             <Button btnClasses={"btn-outline-primary"} handleClick={handleSetTimer}>Set Timer</Button>
                         </div>
                         <div className="">
-                            <input type="range" min="1" max="120" value={slideValue} className="slider" id="myRange" onChange={handleSlideChange} />
+                            <input type="range" min="0" max="120" value={slideValue} className="slider" id="myRange" onChange={handleSlideChange} />
                         </div>
                     </div>
                     <div className="level-settings">

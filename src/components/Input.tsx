@@ -6,7 +6,7 @@ type InputProps = {
     startTimer?: boolean,
     timeLeft?: number,
     inputPlaceholder?: string,
-    inputValue?: string,
+    inputValue?: string|number,
 }
 
 
@@ -26,7 +26,7 @@ const Input = ({handleChange, checkGuess, startTimer, timeLeft, inputPlaceholder
 
     return (
         <>
-            <input ref={gameInProgress} disabled={timeLeft === 0} onChange={handleChange} placeholder={inputPlaceholder} onKeyDown={checkGuess} value={inputValue} className="input m-2 w-25" />
+            <input ref={gameInProgress} disabled={timeLeft === 0} onChange={handleChange} placeholder={inputPlaceholder} onKeyDown={checkGuess} value={inputValue == 0 ? "00" : inputValue} className="input m-2 w-25" />
         </>
     )
 }
