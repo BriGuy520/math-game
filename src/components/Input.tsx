@@ -3,7 +3,7 @@ import React from 'react';
 type InputProps = {
     handleChange: React.ChangeEventHandler<HTMLInputElement>,
     checkGuess?: React.KeyboardEventHandler<HTMLInputElement>,
-    startTimer: boolean,
+    startTimer?: boolean,
     timeLeft?: number,
     inputPlaceholder?: string,
     inputValue?: string,

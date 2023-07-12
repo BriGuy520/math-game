@@ -15,7 +15,7 @@ export type GameProps = {
 
 const Game = ({startTimer, operators, level, timeLeft, startGame, stopGame}: GameProps) => {
 
-  const levelNum: number = level === "Easy" ? 20 : (level === "Medium" ? 40 : 60);
+  const levelNum: number = level === "Easy" ? 10 : (level === "Medium" ? 20 : 30);
 
 
   const [firstValue, setFirstValue] = React.useState<number>(Math.floor(Math.floor(Math.random() * levelNum)));

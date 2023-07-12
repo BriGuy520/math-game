@@ -9,6 +9,7 @@ function App() {
   const [timer, setTimer] = React.useState<number>(0);
   const [seconds, setSeconds] = React.useState<number>(0);
   const [minutes, setMinutes] = React.useState<number>(0);
+  const [slideValue, setSlideValue] = React.useState<number>(0);
 
   const [level, setLevel] = React.useState<string>("Easy");
   const [operators, setOperators] = React.useState<Array<string>>([]);
@@ -25,6 +26,25 @@ function App() {
   const handleSetMinutes = (event: React.ChangeEvent<HTMLInputElement>) => {
 
     setMinutes(parseInt(event.target.value));
+  }
+  
+  const handleSlideChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+    const parseIntSlideValue = parseInt(e.target.value);
+
+    setSlideValue(parseIntSlideValue);
+
+    let slideMinutes: number = Math.floor(parseIntSlideValue / 60);
+    let slideSeconds: number = parseIntSlideValue % 60;
+
+    if(parseIntSlideValue >= 60){
+
+      setMinutes(slideMinutes);
+      setSeconds(slideSeconds);
+    } else {
+      
+      setSeconds(slideSeconds);
+    }
 }
 
   const handleSetTimer = () => {
@@ -107,7 +127,9 @@ function App() {
         <SettingsBar 
           level={level} 
           timer={timer}
+          slideValue={slideValue}
           operators={operators}
+          handleSlideChange={handleSlideChange}
           handleSetTimer={handleSetTimer} 
           handleSetSeconds={handleSetSeconds}
           handleSetMinutes={handleSetMinutes}
@@ -115,7 +137,7 @@ function App() {
           handleOperatorClick={handleOperatorClick}
         />
       </div> 
-      <Game timeLeft={timeLeft} startTimer={startTimer} operators={operators} level={level} timeLeft={timeLeft} startGame={startGame} stopGame={stopGame} />
+      <Game timeLeft={timeLeft} startTimer={startTimer} operators={operators} level={level} startGame={startGame} stopGame={stopGame} />
     </div>
     </>
   )

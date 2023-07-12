@@ -7,19 +7,23 @@ type SettingsBarProps = {
     handleLevelClick: React.MouseEventHandler<HTMLButtonElement>,
     handleSetSeconds: React.ChangeEventHandler<HTMLInputElement>,
     handleSetMinutes: React.ChangeEventHandler<HTMLInputElement>,
+    handleSlideChange: React.ChangeEventHandler<HTMLInputElement>,
     handleSetTimer: React.MouseEventHandler<HTMLButtonElement>,
     handleOperatorClick: MouseEventHandler<HTMLButtonElement>,
     operators: string[],
     level: string,
     timer: number,
+    slideValue: number,
 }
 
-const SettingsBar = ({operators, level, timer, handleLevelClick, handleSetSeconds, handleSetMinutes, handleSetTimer, handleOperatorClick}: SettingsBarProps) => {
+const SettingsBar = ({operators, level, timer, slideValue, handleLevelClick, handleSetSeconds, handleSetMinutes, handleSlideChange, handleSetTimer, handleOperatorClick}: SettingsBarProps) => {
+
+    const [value, setValue] = React.useState<number>(0);
 
     const formatTimer = (): string => {
 
         let timerLeft: number =  timer;
-        let minutes: number|number = 0;
+        let minutes: number = 0;
         let seconds: string|number = 0;
 
         while(timerLeft > 0){
@@ -46,6 +50,9 @@ const SettingsBar = ({operators, level, timer, handleLevelClick, handleSetSecond
                             <Input handleChange={handleSetMinutes} inputPlaceholder={"Minutes"} />
                             <Input handleChange={handleSetSeconds} inputPlaceholder={"Seconds"} />
                             <Button btnClasses={"btn-outline-primary"} handleClick={handleSetTimer}>Set Timer</Button>
+                        </div>
+                        <div className="">
+                            <input type="range" min="1" max="120" value={slideValue} className="slider" id="myRange" onChange={handleSlideChange} />
                         </div>
                     </div>
                     <div className="level-settings">
