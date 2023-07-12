@@ -37,12 +37,14 @@ function App() {
     let slideMinutes: number = Math.floor(parseIntSlideValue / 60);
     let slideSeconds: number = parseIntSlideValue % 60;
 
+    console.log(slideMinutes);
+
     if(parseIntSlideValue >= 60){
 
       setMinutes(slideMinutes);
       setSeconds(slideSeconds);
     } else {
-      
+      setMinutes(0);
       setSeconds(slideSeconds);
     }
 }
@@ -88,7 +90,6 @@ function App() {
 
       setStartTimer(true);
     }
-
   }
 
   const stopGame = () => {

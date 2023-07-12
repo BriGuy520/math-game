@@ -54,7 +54,7 @@ const SettingsBar = ({operators, level, timer, seconds, minutes, slideValue, han
                             <Button btnClasses={"btn-outline-primary"} handleClick={handleSetTimer}>Set Timer</Button>
                         </div>
                         <div className="">
-                            <input type="range" min="0" max="120" value={slideValue} className="slider" id="myRange" onChange={handleSlideChange} />
+                            <input type="range" min="0" max="180" value={slideValue} className="slider" id="myRange" onChange={handleSlideChange} />
                         </div>
                     </div>
                     <div className="level-settings">
