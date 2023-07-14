@@ -37,13 +37,12 @@ function App() {
     let slideMinutes: number = Math.floor(parseIntSlideValue / 60);
     let slideSeconds: number = parseIntSlideValue % 60;
 
-    console.log(slideMinutes);
-
     if(parseIntSlideValue >= 60){
 
       setMinutes(slideMinutes);
       setSeconds(slideSeconds);
     } else {
+      
       setMinutes(0);
       setSeconds(slideSeconds);
     }
@@ -53,8 +52,16 @@ function App() {
     
     const totalSeconds = (minutes * 60) + seconds;
 
-    setTimer(totalSeconds);
-    setTimeLeft(totalSeconds);
+    if(totalSeconds > 180){
+
+      setTimer(180);
+      setTimeLeft(180);
+    } else {
+
+      setTimer(totalSeconds);
+      setTimeLeft(totalSeconds);
+    }
+
   }
 
   const handleLevelClick: MouseEventHandler<HTMLButtonElement> = (e: React.MouseEvent<HTMLButtonElement>) => {

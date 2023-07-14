@@ -20,8 +20,6 @@ type SettingsBarProps = {
 
 const SettingsBar = ({operators, level, timer, seconds, minutes, slideValue, handleLevelClick, handleSetSeconds, handleSetMinutes, handleSlideChange, handleSetTimer, handleOperatorClick}: SettingsBarProps) => {
 
-    const [value, setValue] = React.useState<number>(0);
-
     const formatTimer = (): string => {
 
         let timerLeft: number =  timer;
@@ -53,7 +51,7 @@ const SettingsBar = ({operators, level, timer, seconds, minutes, slideValue, han
                             <Input handleChange={handleSetSeconds} inputPlaceholder={"Seconds"} inputValue={seconds} />
                             <Button btnClasses={"btn-outline-primary"} handleClick={handleSetTimer}>Set Timer</Button>
                         </div>
-                        <div className="">
+                        <div className="slider-container">
                             <input type="range" min="0" max="180" value={slideValue} className="slider" id="myRange" onChange={handleSlideChange} />
                         </div>
                     </div>

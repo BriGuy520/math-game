@@ -72,7 +72,12 @@
 
 .timer-settings, .operators-settings, .level-settings {
   width: 100%;
-  padding: 10px 0;
+  margin: 10px;
+}
+
+.slider-container input {
+  margin: 12px;
+  width: 75%;
 }
 
 @media(min-width: 1299px){
@@ -86,7 +91,7 @@
     }
 
     .timer-settings, .operators-settings {
-      width: 40%;
+      width: 50%;
     }
     
     .level-settings {

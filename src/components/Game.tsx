@@ -91,6 +91,7 @@ const Game = ({startTimer, operators, level, timeLeft, startGame, stopGame}: Gam
       let newHighScores = [...highScores, correct];
 
       setHighScores(newHighScores);
+      
     }
 
   }, [timeLeft, startTimer]);
