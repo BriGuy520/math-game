@@ -13,13 +13,23 @@ export type GameProps = {
   stopGame: React.MouseEventHandler<HTMLButtonElement>
 }
 
+const generateRandomNumber = (level: number) => {
+
+  return Math.floor(Math.floor(Math.random() * level));
+}
+
 const Game = ({startTimer, operators, level, timeLeft, startGame, stopGame}: GameProps) => {
 
   const levelNum: number = level === "Easy" ? 10 : (level === "Medium" ? 20 : 30);
 
+  // const levelNumMultiplication: number = level === "Easy" ? 10 : (level === "Medium" ? 20 : 30);
+  // const levelNumDivision: number = level === "Easy" ? 50 : (level === "Medium" ? 100  : 200);
+  // const levelNumSubtraction: number = level === "Easy" ? 25 : (level === "Medium" ? 50 : 100);
+  // const levelNumAddition: number = level === "Easy" ? 25 : (level === "Medium" ? 50 : 100);
 
-  const [firstValue, setFirstValue] = React.useState<number>(Math.floor(Math.floor(Math.random() * levelNum)));
-  const [secondValue, setSecondValue] = React.useState<number>(Math.floor(Math.floor(Math.random() * levelNum)));
+
+  const [firstValue, setFirstValue] = React.useState<number>(generateRandomNumber(levelNum));
+  const [secondValue, setSecondValue] = React.useState<number>(generateRandomNumber(levelNum));
   const [operator, setOperator] = React.useState<string>(operators[Math.floor(Math.random() * operators.length)]);
 
   const [guess, setGuess] = React.useState<string>("");
@@ -91,7 +101,7 @@ const Game = ({startTimer, operators, level, timeLeft, startGame, stopGame}: Gam
       let newHighScores = [...highScores, correct];
 
       setHighScores(newHighScores);
-      
+
     }
 
   }, [timeLeft, startTimer]);
